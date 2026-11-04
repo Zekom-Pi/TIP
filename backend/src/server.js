@@ -15,6 +15,15 @@ import integrationRoute from "./routes/integrationRoute.js";
 dotenv.config();
 
 const app = express();
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Threat Intelligence Platform API is running",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 const PORT = process.env.PORT || 5001;
 
 // middlewares
